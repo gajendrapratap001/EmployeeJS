@@ -36,3 +36,37 @@ console.log("All elements Full Time Wage:", Array.from(empDailyWageMap.values())
 console.log("Any Part Time Wage:", Array.from(empDailyWageMap.values()).some(wage => wage === PART_TIME_HOURS * EMP_RATE_PER_HOUR));
 
 console.log("Number of Days Employee Worked:", Array.from(empDailyWageMap.values()).filter(wage => wage > 0).length);
+
+const validateEmployee = (id, salary, gender, date) => {
+    try {
+        if (!/^\d+$/.test(id) || id <= 0) throw new Error("Invalid Employee ID");
+        if (!/^\d+(\.\d+)?$/.test(salary) || salary <= 0) throw new Error("Invalid Salary");
+        if (!/^[MF]$/.test(gender)) throw new Error("Invalid Gender");
+        if (new Date(date) > new Date()) throw new Error("Date cannot be in the future");
+        console.log("Employee details are valid.");
+    } catch (error) {
+        console.log("Error:", error.message);
+    }
+};
+
+validateEmployee("101", "5000", "M", "2025-03-20");
+
+const validatePinCode = (pin) => {
+    const pinPattern = /^[1-9][0-9]{2}\s?[0-9]{3}$/;
+    console.log(pinPattern.test(pin) ? "Valid PIN Code" : "Invalid PIN Code");
+};
+
+validatePinCode("400088");
+validatePinCode("A400088");
+validatePinCode("400088B");
+validatePinCode("400 088");
+
+const validateEmail = (email) => {
+    const emailPattern = /^abc(\.[a-zA-Z0-9]+)?@bridgelabz\.co(\.in)?$/;
+    console.log(emailPattern.test(email) ? "Valid Email" : "Invalid Email");
+};
+
+validateEmail("abc@bridgelabz.co.in");
+validateEmail("abc.xyz@bridgelabz.co.in");
+validateEmail("abc@bridgelabz.co");
+validateEmail("xyz@bridgelabz.co.in");
