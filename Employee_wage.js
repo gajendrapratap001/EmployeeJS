@@ -36,3 +36,4 @@ console.log("All elements Full Time Wage:", Array.from(empDailyWageMap.values())
 console.log("Any Part Time Wage:", Array.from(empDailyWageMap.values()).some(wage => wage === PART_TIME_HOURS * EMP_RATE_PER_HOUR));
 
 console.log("Number of Days Employee Worked:", Array.from(empDailyWageMap.values()).filter(wage => wage > 0).length);
+
