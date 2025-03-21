@@ -62,11 +62,13 @@ validatePinCode("400088B");
 validatePinCode("400 088");
 
 const validateEmail = (email) => {
-    const emailPattern = /^abc(\.[a-zA-Z0-9]+)?@bridgelabz\.co(\.in)?$/;
+    const emailPattern = /^abc([._,+-][a-zA-Z0-9]+)?@bridgelabz\.co(\.\w{2})?$/;
     console.log(emailPattern.test(email) ? "Valid Email" : "Invalid Email");
 };
 
 validateEmail("abc@bridgelabz.co.in");
-validateEmail("abc.xyz@bridgelabz.co.in");
 validateEmail("abc@bridgelabz.co");
+validateEmail("abc.xyz@bridgelabz.co.in");
+validateEmail("abc-xyz@bridgelabz.co.in");
+validateEmail("abc+xyz@bridgelabz.co.in");
 validateEmail("xyz@bridgelabz.co.in");
